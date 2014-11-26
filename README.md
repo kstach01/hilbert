@@ -1,41 +1,39 @@
 Hilbert Transform for Brain Wave Analysis
 =======
 
-Purpose: Analyze EEG or LFP data via Hilbert Transform
+__Author:__ Kimberly Stachenfeld  
+__Email:__ kim.stachenfeld@gmail.com
 
- Author: Kimberly Stachenfeld
-  Email: kim.stachenfeld@gmail.com
+##Purpose
+Analyze EEG or LFP data via Hilbert Transform
 
-Contents:
+<!---
+##Data Preprocessing
+What form should the data be in?
+-->
 
-run\_analysis                Example on how to call hilbert\_stats
-ex\_KI2.mat                  Example dataset
-hilbert\_stats               Returns ITC, ERSP, and phase angle correlation and relevant bootstrap statistics and plots
-			    from hilbert transform data bandpassed at frequency intervals.
-bootstrap\_analysis          Calculates bootstrap and p-value by resampling for ITC and ERSP
-phase\_angle\_correlation     Calculates average correlation among phase angles for different trials
-plot\_results                plot raw data, ERSP, ITC, phase angle correlation, and bootstrap results
+##Contents
 
-Required from circStat package:
-circ\_r 		            Resultant vector length
+`run_analysis`: Example on how to call `hilbert_stats`
+`ex_KI2.mat`: Example dataset
+`hilbert_stats`: Returns ITC, ERSP, and phase angle correlation and relevant bootstrap statistics and plots from hilbert transform data bandpassed at frequency intervals.
+`bootstrap_analysis`: Calculates bootstrap and p-value by resampling for ITC and ERSP
+`phase_angle_correlation`: Calculates average correlation among phase angles for different trials
+`plot_results`: plot raw data, ERSP, ITC, phase angle correlation, and bootstrap results
 
-circ\_mean 		    Mean direction of a sample of circular data
+##Dependencies
+###*circstat* toolbox  
+Philipp Behrens. [A Matlab Toolbox for Circular Statistics](http://www.jstatsoft.org/v31/i10). _Journal of Statistical Software_, 2009, __31__(10).
+####Required from circStat package:  
+- `circ_r`: Resultant vector length  
+- `circ_mean`: Mean direction of a sample of circular data  
+- `circ_confmean`: Confidence intervals for mean direction  
+- `circ_corrcc`: Circular-circular correlation coefficient  
 
-circ\_confmean 		    Confidence intervals for mean direction
+###*EEGLAB* package
+Arnaud Delorme, Scott Makeig. [EEGLAB: an open source toolbox for analysis of single-trial EEG dynamics](http://sccn.ucsd.edu/~scott/pdf/EEGLAB04.pdf). *Journal of Neuroscience Methods*, 2004, **134**:9-21. 
+####Required from eeglab package:
+- `eegfilt`: Low/High pass filter data
+<!--- note to kim: sub out with function to bandpass filter without changing phase information -->
 
 
-circ\_corrcc		    Circular-circular correlation coefficient
-
- 
-A Matlab Toolbox for Circular Statistics, Journal of Statistical Software, Volume 31, Issue 10, 2009.
-	http://www.jstatsoft.org/v31/i10
-
-
-
-Required from eeglab package:
-eegfilt                     Low/High pass filter data
-\# note to kim: sub out with function to bandpass filter without changing phase information
-
-Delorme, A., Makeig, S. (in press) EEGLAB: An open source toolbox for analysis of single-trial 
-EEG dynamics including independent component analysis. Journal of Neuroscience Methods.
-	http://sccn.ucsd.edu/eeglab/download/eeglab_jnm03.pdf
